@@ -3,67 +3,152 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error Page121</title>
-
+    <title>Manoj GK | Under Construction</title>
     <style>
+        :root {
+            --bg: #050816;
+            --card: rgba(11, 18, 32, 0.86);
+            --text: #f8fafc;
+            --muted: #cbd5e1;
+            --pink: #ff5f7e;
+            --purple: #7c3aed;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(255, 95, 126, 0.35), transparent 25%),
+                radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.3), transparent 30%),
+                var(--bg);
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .panel {
+            width: min(100%, 980px);
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            backdrop-filter: blur(16px);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            align-items: center;
+            padding: 32px;
+        }
+
+        .content h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.1;
+        }
+
+        .content .tag {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(255, 95, 126, 0.16);
+            color: #ffd4de;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 1.02rem;
+            line-height: 1.7;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .links a {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text);
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .links a:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.12);
+        }
+
+        .email {
+            color: #ffe1e7;
+            font-weight: 600;
+        }
+
+        .image-wrap {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
-        .error-container {
-            text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        .image-wrap img {
+            width: min(100%, 340px);
+            height: auto;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 4px solid rgba(255,255,255,0.18);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.25);
         }
 
-        h1 {
-            font-size: 80px;
-            color: red;
-            margin: 0;
-        }
+        @media (max-width: 760px) {
+            .panel {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
 
-        h2 {
-            margin: 10px 0;
-            color: #333;
-        }
-
-        p {
-            color: #666;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            text-decoration: none;
-            background: #007bff;
-            color: white;
-            border-radius: 5px;
-        }
-
-        a:hover {
-            background: #0056b3;
+            .image-wrap {
+                order: -1;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="panel">
+        <div class="content">
+            <div class="tag">⚡ Under Construction</div>
+            <h1>Coming soon!</h1>
+            <p>I’m giving this space a fresh new look. Until then, feel free to reach out, follow along, or just say hello.</p>
 
-    <div class="error-container">
-        <h1>404</h1>
-        <h2>Page Not Found</h2>
-        <p>Sorry, the page you are looking for does not exist.</p>
+            <div class="links">
+                <a href="mailto:manojgk0210@gmail.com">Email Me</a>
+                <a href="https://www.youtube.com/@The-Kaizen-Hub/" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.linkedin.com/in/manoj-gk-3a4878264/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/the.kaizen.hub/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                
+            </div>
 
-        <a href="index.html">Go Back Home</a>
+            <div class="email">manojgk0210@gmail.com</div>
+        </div>
+
+        <div class="image-wrap">
+            <div style="text-align:center;">
+                <div style="display:inline-block; margin-bottom:10px; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,0.08); color:#ffd4de; font-size:0.9rem; letter-spacing:0.04em; text-transform:uppercase;">Try aging</div>
+                <img src="videoframe_265.png" alt="Manoj GK" />
+            </div>
+        </div>
     </div>
-
 </body>
 </html>

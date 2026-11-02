@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="description" content="Day 2 session page for the 30-Day DevOps in Kannada Challenge." />
+    <title>Day 2 | DevOps Kannada Challenge</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --background: #0b1220;
+            --surface: #111b2d;
+            --text: #f3f6fc;
+            --muted: #a9b5c8;
+            --accent: #70e1c1;
+            --line: rgba(226, 237, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text);
+            background:
+                radial-gradient(ellipse at 75% 5%, rgba(35, 122, 129, 0.18), transparent 34rem),
+                var(--background);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        .shell {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 72px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: var(--accent);
+        }
+
+        main {
+            display: grid;
+            align-content: center;
+            min-height: calc(100vh - 130px);
+            padding: 48px 0;
+        }
+
+        .card {
+            padding: clamp(28px, 6vw, 52px);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            background:
+                linear-gradient(115deg, rgba(112, 225, 193, 0.1), transparent 65%),
+                var(--surface);
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0 0 14px;
+            font-size: clamp(2.5rem, 7vw, 4.2rem);
+            letter-spacing: -0.06em;
+            line-height: 1.05;
+        }
+
+        p {
+            max-width: 650px;
+            color: var(--muted);
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .links a {
+            padding: 10px 15px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+
+        .links a:first-child {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #0b1a1b;
+            font-weight: 700;
+        }
+
+        footer {
+            align-self: end;
+            padding: 22px 0 28px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <header>
+            <a href="/">Manoj GK</a>
+            <a href="/kannada/">← All challenge days</a>
+        </header>
+        <main>
+            <section class="card" aria-labelledby="day-two-title">
+                <p class="eyebrow">30-Day DevOps in Kannada Challenge · Day 02</p>
+                <h1 id="day-two-title">Day 2 lesson</h1>
+                <p>The Day 2 lesson and its notes will be added here. This page is ready for the session content.</p>
+                <nav class="links" aria-label="Lesson navigation">
+                    <a href="/kannada/">Back to all days</a>
+                    <a href="/kannada/day-1.html">Review Day 1</a>
+                </nav>
+            </section>
+        </main>
+        <footer>30-Day DevOps Kannada Challenge · Manoj GK</footer>
+    </div>
+</body>
+</html>

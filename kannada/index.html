@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1220" />
-    <meta name="description" content="Day 1 of the 30-Day DevOps Kannada Challenge: understand how Java code is compiled, built, run and hosted." />
-    <title>Day 1: Java to a Running App | DevOps Kannada Challenge</title>
+    <meta name="description" content="Browse the 30-day DevOps learning challenge in Kannada. Open each day to view its lesson." />
+    <title>30-Day DevOps in Kannada Challenge | Manoj GK</title>
     <style>
         :root {
             color-scheme: dark;
@@ -16,16 +16,10 @@
             --muted: #a9b5c8;
             --accent: #70e1c1;
             --line: rgba(226, 237, 255, 0.12);
-            --code: #09111e;
         }
 
         * {
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 24px;
         }
 
         body {
@@ -36,24 +30,15 @@
                 radial-gradient(ellipse at 75% 5%, rgba(35, 122, 129, 0.18), transparent 34rem),
                 var(--background);
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.65;
+            line-height: 1.6;
         }
 
         a {
             color: inherit;
         }
 
-        code,
-        pre {
-            font-family: Consolas, "Courier New", monospace;
-        }
-
-        code {
-            color: #b8f3e2;
-        }
-
         .shell {
-            width: min(940px, calc(100% - 40px));
+            width: min(1000px, calc(100% - 40px));
             margin: 0 auto;
         }
 
@@ -84,10 +69,11 @@
         }
 
         main {
-            padding: 48px 0 72px;
+            padding: clamp(32px, 7vw, 72px) 0;
         }
 
         .hero {
+            margin-bottom: 44px;
             padding: clamp(28px, 6vw, 52px);
             border: 1px solid var(--line);
             border-radius: 20px;
@@ -114,7 +100,7 @@
 
         h1 {
             max-width: 760px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-size: clamp(2.35rem, 7vw, 4.3rem);
             letter-spacing: -0.06em;
             line-height: 1.06;
@@ -125,281 +111,100 @@
         }
 
         .hero-copy {
-            max-width: 680px;
-            margin-bottom: 24px;
+            max-width: 700px;
+            margin: 0;
             color: var(--muted);
             font-size: 1.08rem;
         }
 
-        .lesson-facts {
+        .section-heading {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .lesson-facts span {
-            padding: 6px 11px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            color: #d7e1ee;
-            font-size: 0.86rem;
-        }
-
-        .contents {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 20px;
-            margin: 22px 0 48px;
-            padding: 16px 20px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.025);
-        }
-
-        .contents strong {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .contents a {
-            color: #dce5f1;
-            font-size: 0.9rem;
-            text-decoration-color: rgba(220, 229, 241, 0.4);
-            text-underline-offset: 3px;
-        }
-
-        .contents a:hover,
-        .contents a:focus-visible {
-            color: var(--accent);
-        }
-
-        .lesson-section {
-            margin-top: 52px;
-            scroll-margin-top: 24px;
-        }
-
-        .section-kicker {
-            margin-bottom: 8px;
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        h2 {
-            margin-bottom: 12px;
-            font-size: clamp(1.65rem, 4vw, 2.2rem);
-            letter-spacing: -0.04em;
-            line-height: 1.2;
-        }
-
-        h3 {
-            margin-bottom: 8px;
-            font-size: 1.12rem;
-        }
-
-        .section-intro {
-            max-width: 720px;
-            margin-bottom: 22px;
-            color: var(--muted);
-        }
-
-        .panel,
-        .code-card,
-        .command-card,
-        .pipeline-step {
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--surface);
-        }
-
-        .panel {
-            padding: clamp(20px, 4vw, 30px);
-        }
-
-        .panel > :last-child,
-        .code-card > :last-child {
-            margin-bottom: 0;
-        }
-
-        .flow {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            align-items: stretch;
-            gap: 10px;
-            margin: 22px 0;
-        }
-
-        .flow-step {
-            display: grid;
-            align-content: center;
-            min-height: 98px;
-            padding: 14px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--surface-raised);
-            text-align: center;
-        }
-
-        .flow-step strong {
-            display: block;
-            font-size: 0.95rem;
-        }
-
-        .flow-step span {
-            display: block;
-            margin-top: 4px;
-            color: var(--muted);
-            font-size: 0.82rem;
-        }
-
-        .flow-arrow {
-            display: none;
-        }
-
-        .code-card {
-            overflow: hidden;
-            margin-top: 18px;
-        }
-
-        .code-title {
-            padding: 11px 16px;
-            border-bottom: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 0.84rem;
-        }
-
-        pre {
-            overflow-x: auto;
-            margin: 0;
-            padding: 18px;
-            background: var(--code);
-            color: #e2eaf5;
-            font-size: 0.9rem;
-            line-height: 1.65;
-            tab-size: 4;
-        }
-
-        .two-column {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: end;
+            justify-content: space-between;
             gap: 16px;
-            margin-top: 20px;
+            margin-bottom: 18px;
         }
 
-        .two-column .panel {
-            height: 100%;
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            letter-spacing: -0.035em;
         }
 
-        .plain-list {
-            margin: 10px 0 0;
-            padding-left: 20px;
-            color: var(--muted);
-        }
-
-        .plain-list li + li {
-            margin-top: 7px;
-        }
-
-        .commands {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .command-card {
-            padding: 18px;
-        }
-
-        .command-card code {
-            display: inline-block;
-            margin-bottom: 7px;
-            font-size: 0.98rem;
-        }
-
-        .command-card p {
+        .section-heading p {
             margin: 0;
             color: var(--muted);
             font-size: 0.92rem;
         }
 
-        .note {
-            margin-top: 18px;
-            padding: 15px 18px;
-            border-left: 3px solid var(--accent);
-            border-radius: 0 10px 10px 0;
-            background: rgba(112, 225, 193, 0.07);
-            color: #d7e1ee;
-        }
-
-        .note strong {
-            color: var(--text);
-        }
-
-        .hosting-panel {
-            margin-top: 16px;
-        }
-
-        .pipeline {
+        .day-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
         }
 
-        .pipeline-step {
-            min-height: 116px;
-            padding: 17px;
-        }
-
-        .pipeline-step span {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--accent);
-            font-size: 0.76rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .pipeline-step strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .pipeline-step p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.86rem;
-        }
-
-        .quiz {
-            margin-top: 22px;
-            overflow: hidden;
+        .day-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            min-height: 114px;
+            padding: 20px 22px;
             border: 1px solid var(--line);
             border-radius: 14px;
             background: var(--surface);
         }
 
-        .quiz summary {
-            padding: 19px 22px;
-            cursor: pointer;
-            font-weight: 700;
+        a.day-card {
+            text-decoration: none;
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
 
-        .quiz summary::marker {
+        a.day-card:hover,
+        a.day-card:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(112, 225, 193, 0.55);
+            background: var(--surface-raised);
+        }
+
+        .day-info {
+            min-width: 0;
+        }
+
+        .day-number {
+            display: block;
+            margin-bottom: 4px;
             color: var(--accent);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        .quiz-answer {
-            padding: 0 22px 22px;
+        .day-card h3 {
+            margin: 0;
+            font-size: 1.08rem;
+        }
+
+        .day-card p {
+            margin: 4px 0 0;
             color: var(--muted);
+            font-size: 0.88rem;
         }
 
-        .quiz-answer p:last-child {
-            margin-bottom: 0;
+        .day-arrow {
+            flex: 0 0 auto;
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .day-card.upcoming {
+            background: rgba(17, 27, 45, 0.55);
+        }
+
+        .day-card.upcoming .day-number,
+        .day-card.upcoming .day-arrow {
+            color: var(--muted);
         }
 
         footer {
@@ -409,47 +214,24 @@
             font-size: 0.9rem;
         }
 
-        @media (max-width: 720px) {
-            .flow {
+        @media (max-width: 680px) {
+            .day-grid {
                 grid-template-columns: 1fr;
             }
 
-            .flow-step {
-                min-height: auto;
-                text-align: left;
-            }
-
-            .two-column,
-            .commands {
-                grid-template-columns: 1fr;
-            }
-
-            .pipeline {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
             }
         }
 
         @media (max-width: 520px) {
             .shell {
-                width: min(100% - 32px, 940px);
-            }
-
-            main {
-                padding-top: 28px;
-            }
-
-            .pipeline {
-                grid-template-columns: 1fr;
+                width: min(100% - 32px, 1000px);
             }
 
             .site-header {
                 min-height: 64px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
             }
         }
     </style>
@@ -462,164 +244,67 @@
         </header>
 
         <main>
-            <section class="hero" aria-labelledby="lesson-title">
-                <p class="eyebrow">30-Day DevOps Kannada Challenge · Day 01</p>
-                <h1 id="lesson-title">From Java code to a <span>running app</span></h1>
-                <p class="hero-copy">Follow one small Java program through writing, compiling, building and running. Then see how a web server can make an application available to other people.</p>
-                <div class="lesson-facts" aria-label="Lesson topics">
-                    <span>Java basics</span>
-                    <span>Maven build</span>
-                    <span>Local hosting</span>
-                </div>
+            <section class="hero" aria-labelledby="challenge-title">
+                <p class="eyebrow">ಕನ್ನಡದಲ್ಲಿ ಕಲಿಯೋಣ · Learn in Kannada</p>
+                <h1 id="challenge-title">30-Day <span>DevOps in Kannada</span> Challenge</h1>
+                <p class="hero-copy">Choose a day to open its lesson. We’ll add the notes and learning materials one session at a time, from beginner concepts towards advanced DevOps.</p>
             </section>
 
-            <nav class="contents" aria-label="On this page">
-                <strong>On this page</strong>
-                <a href="#java">Java lifecycle</a>
-                <a href="#maven">Maven</a>
-                <a href="#devops">DevOps pipeline</a>
-                <a href="#hosting">Hosting at home</a>
-                <a href="#check">Knowledge check</a>
-            </nav>
-
-            <section class="lesson-section" id="java" aria-labelledby="java-title">
-                <p class="section-kicker">01 · Start with Java</p>
-                <h2 id="java-title">What happens to Java code?</h2>
-                <p class="section-intro">You write instructions in a <code>.java</code> source file. The Java compiler turns them into bytecode. The Java Virtual Machine (JVM) runs that bytecode.</p>
-
-                <div class="panel">
-                    <div class="flow" aria-label="Java source code is compiled into bytecode, then run by the JVM to produce output">
-                        <div class="flow-step"><strong>Hello.java</strong><span>Source code</span></div>
-                        <div class="flow-step"><strong>javac</strong><span>Java compiler</span></div>
-                        <div class="flow-step"><strong>Hello.class</strong><span>Bytecode</span></div>
-                        <div class="flow-step"><strong>JVM</strong><span>Runs bytecode</span></div>
-                        <div class="flow-step"><strong>Hello World</strong><span>Program output</span></div>
-                    </div>
-                    <p class="section-intro">For a tiny program, you can compile and run it directly—no Maven project is needed.</p>
-                    <div class="code-card">
-                        <div class="code-title">Hello.java</div>
-                        <pre><code>public class Hello {
-    public static void main(String[] args) {
-        System.out.println("Hello World");
-    }
-}</code></pre>
-                    </div>
-                    <div class="code-card">
-                        <div class="code-title">Run these commands from the folder containing Hello.java</div>
-                        <pre><code>javac Hello.java
-java Hello</code></pre>
-                    </div>
-                    <p class="note"><strong>In simple words:</strong> <code>javac</code> translates your source code; <code>java</code> starts the JVM to run the compiled program.</p>
+            <section aria-labelledby="days-title">
+                <div class="section-heading">
+                    <h2 id="days-title">Challenge sessions</h2>
+                    <p>Day 1 and Day 2 have their own lesson pages.</p>
                 </div>
-            </section>
-
-            <section class="lesson-section" id="maven" aria-labelledby="maven-title">
-                <p class="section-kicker">02 · Build with Maven</p>
-                <h2 id="maven-title">Why use Maven?</h2>
-                <p class="section-intro">As a project grows, it can have many Java files, libraries, tests and resources. Maven helps manage dependencies and repeat common build steps. Its <code>pom.xml</code> file describes the project and its build configuration.</p>
-
-                <div class="two-column">
-                    <article class="panel">
-                        <h3>Without a build tool</h3>
-                        <ul class="plain-list">
-                            <li>Compile files and manage class paths yourself.</li>
-                            <li>Download and track libraries manually.</li>
-                            <li>Repeat build and test steps by hand.</li>
-                        </ul>
-                    </article>
-                    <article class="panel">
-                        <h3>With Maven</h3>
-                        <ul class="plain-list">
-                            <li>Declare libraries in <code>pom.xml</code>.</li>
-                            <li>Use shared commands for compile, test and package.</li>
-                            <li>Keep a consistent build that can be automated.</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <div class="commands" aria-label="Common Maven commands">
-                    <article class="command-card"><code>mvn clean</code><p>Removes previous build output, usually the <code>target</code> folder.</p></article>
-                    <article class="command-card"><code>mvn compile</code><p>Compiles the project's main source code.</p></article>
-                    <article class="command-card"><code>mvn test</code><p>Runs the tests configured for the project.</p></article>
-                    <article class="command-card"><code>mvn package</code><p>Builds a distributable package, commonly a JAR or WAR.</p></article>
-                    <article class="command-card"><code>mvn install</code><p>Builds the project and places its artifact in your local Maven repository for other local projects to use.</p></article>
-                    <article class="command-card"><code>mvn deploy</code><p>Publishes the artifact to a remote repository configured for the project.</p></article>
-                </div>
-
-                <div class="code-card">
-                    <div class="code-title">A common local build</div>
-                    <pre><code>mvn clean package</code></pre>
-                </div>
-                <p class="note"><strong>Remember:</strong> this cleans old output, then compiles, tests and packages the project. It does <em>not</em> start the application. You also do not need <code>mvn install</code> just to run your app.</p>
-                <p class="section-intro">The finished artifact is usually created under <code>target/</code>. A plain JAR is not automatically runnable with <code>java -jar</code>; that depends on how the project is packaged and configured.</p>
-            </section>
-
-            <section class="lesson-section" id="devops" aria-labelledby="devops-title">
-                <p class="section-kicker">03 · Connect it to DevOps</p>
-                <h2 id="devops-title">Where does the build fit?</h2>
-                <p class="section-intro">A CI/CD pipeline automates the repeatable steps after a developer shares code. This example shows one common path; teams and tools can differ.</p>
-                <div class="pipeline" aria-label="Example DevOps pipeline">
-                    <div class="pipeline-step"><span>Step 1</span><strong>Share code</strong><p>Developer pushes code to GitHub.</p></div>
-                    <div class="pipeline-step"><span>Step 2</span><strong>Build and test</strong><p>A pipeline runs Maven checks.</p></div>
-                    <div class="pipeline-step"><span>Step 3</span><strong>Package</strong><p>Create a JAR or WAR artifact.</p></div>
-                    <div class="pipeline-step"><span>Step 4</span><strong>Deploy</strong><p>Release to a server or platform.</p></div>
-                </div>
-            </section>
-
-            <section class="lesson-section" id="hosting" aria-labelledby="hosting-title">
-                <p class="section-kicker">04 · Run it on a server</p>
-                <h2 id="hosting-title">Can your laptop host an application?</h2>
-                <p class="section-intro">Yes. For learning, you can run a Java web application on your laptop and open it in a browser. But “running locally” and “available to everyone on the internet” are different things.</p>
-
-                <div class="two-column">
-                    <article class="panel">
-                        <h3>Know the server roles</h3>
-                        <ul class="plain-list">
-                            <li>A Java web app often runs with an embedded server such as Tomcat, or on a separately installed application server.</li>
-                            <li>Apache HTTP Server can serve static files or sit in front of an app as a reverse proxy when configured.</li>
-                            <li>Apache HTTP Server does not automatically run every Java application by itself.</li>
-                        </ul>
-                    </article>
-                    <article class="panel">
-                        <h3>Know who can reach it</h3>
-                        <ul class="plain-list">
-                            <li><code>localhost</code> usually means the app is reachable from that same laptop.</li>
-                            <li>Other devices on your home network may need your laptop's network address and suitable app/firewall settings.</li>
-                            <li>Public access needs additional network, security and availability setup.</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <div class="panel hosting-panel">
-                    <h3>Why a laptop is not ideal for a 24/7 service</h3>
-                    <p class="section-intro">A laptop can sleep, lose power or internet, restart for updates, or change network address. It may also be exposed to security risks if opened to the public internet. For a service that must stay available, teams typically use a server, VPS or cloud platform with proper monitoring and security.</p>
-                    <p class="note"><strong>Day 1 takeaway:</strong> your laptop is great for learning and local testing. Hosting a reliable public service is a separate step—and we’ll build on these ideas in later lessons.</p>
-                </div>
-            </section>
-
-            <section class="lesson-section" id="check" aria-labelledby="check-title">
-                <p class="section-kicker">05 · Check your understanding</p>
-                <h2 id="check-title">What does <code>mvn clean package</code> do?</h2>
-                <div class="panel">
-                    <p>Choose the best answer before opening the explanation:</p>
-                    <ol class="plain-list">
-                        <li>It removes old build output, builds and tests the project, then creates a package.</li>
-                        <li>It only downloads libraries into the local Maven repository.</li>
-                        <li>It automatically starts the Java application.</li>
-                        <li>It installs Maven on your computer.</li>
-                    </ol>
-                    <details class="quiz">
-                        <summary>Show the answer and explanation</summary>
-                        <div class="quiz-answer">
-                            <p><strong>Correct answer: 1.</strong> Maven cleans the previous output, then runs the build lifecycle through the package phase. That includes compiling and running configured tests before creating the JAR or WAR.</p>
-                            <p>It does not start the app. To run it, use the method configured by that project. Also, <code>mvn install</code> is a separate lifecycle step that puts the artifact in your local Maven repository.</p>
-                        </div>
-                    </details>
+                <div class="day-grid">
+                    <a class="day-card" href="/kannada/day-1.html">
+                        <span class="day-info">
+                            <span class="day-number">Day 01 · Lesson available</span>
+                            <h3>From Java code to a running app</h3>
+                            <p>Java basics, Maven, build and hosting</p>
+                        </span>
+                        <span class="day-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="day-card" href="/kannada/day-2.html">
+                        <span class="day-info">
+                            <span class="day-number">Day 02 · Coming soon</span>
+                            <h3>Day 2 lesson</h3>
+                            <p>Open the session page</p>
+                        </span>
+                        <span class="day-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 03</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 04</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 05</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 06</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 07</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 08</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 09</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 10</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 11</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 12</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 13</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 14</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 15</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 16</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 17</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 18</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 19</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 20</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 21</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 22</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 23</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 24</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 25</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 26</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 27</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 28</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 29</span><h3>Coming soon</h3></span></div>
+                    <div class="day-card upcoming"><span class="day-info"><span class="day-number">Day 30</span><h3>Coming soon</h3></span></div>
                 </div>
             </section>
         </main>
 
-        <footer>30-Day DevOps Kannada Challenge · Day 1 · Manoj GK</footer>
+        <footer>30-Day DevOps Kannada Challenge · Manoj GK</footer>
     </div>
 </body>
 </html>
